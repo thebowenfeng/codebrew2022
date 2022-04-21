@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { initializeApp } from "firebase/app"
 import About from "./Pages/About";
