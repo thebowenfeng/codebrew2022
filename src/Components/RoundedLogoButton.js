@@ -6,7 +6,8 @@ export default function RoundedLogoButton(props){
         <RoundedButton style={{
             ...props.style,
             justifyContent: "flex-start"
-        }}>
+        }}
+        onClick={props.onClick}>
             <div style={{
                 display: "flex",
                 flexDirection: "row",
