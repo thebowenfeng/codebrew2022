@@ -17,23 +17,54 @@ export default function GlobalMenubar(){
                         <Avatar src="https://pbs.twimg.com/profile_images/1455185376876826625/s1AjSxph_400x400.jpg" 
                         sx={{height: "12vh", width: "12vh"}}/>
                     </Box>
-                    <Button sx={{fontSize: "25px", position: 'relative', ml: "3.5vw"}}>
+                    <Button sx={{fontSize: "25px", 
+                            position: 'relative', 
+                            ml: "3.5vw", 
+                            mt: "3.1vh",
+                            color: "#000000", 
+                            fontFamily: "Comfortaa",
+                            fontWeight: "bold",
+                            height: "50%"}}>
                         Market
                     </Button>
-                    <Button sx={{fontSize: "25px", position: 'relative', ml: "3.5vw"}}>
+                    <Button sx={{fontSize: "25px", 
+                            position: 'relative', 
+                            ml: "3.5vw", 
+                            mt: "3.1vh",
+                            color: "#000000", 
+                            fontFamily: "Comfortaa",
+                            fontWeight: "bold",
+                            height: "50%"}}>
                         Buy Requests
                     </Button>
-                    <Button sx={{fontSize: "25px", position: 'relative', ml: "3.5vw"}}>
+                    <Button sx={{fontSize: "25px", 
+                            position: 'relative', 
+                            ml: "3.5vw", 
+                            mt: "3.1vh",
+                            color: "#000000", 
+                            fontFamily: "Comfortaa",
+                            fontWeight: "bold",
+                            height: "50%"}}>
                         About us
                     </Button>
                 </Box>
                 <Box sx={{width: "fit-content", display: "flex"}}>
-                    <Button sx={{fontSize: "25px", position: "relative", mr: "3vw"}}>
+                    <Button sx={{fontSize: "25px", 
+                            position: "relative", 
+                            mr: "3vw", 
+                            mt: "3.1vh",
+                            color: "#000000", 
+                            fontFamily: "Comfortaa",
+                            fontWeight: "bold",
+                            height: "50%"}}>
                         Create listing
-                        <AddBoxIcon sx={{fontSize: "27px"}}/>
+                        <AddBoxIcon sx={{fontSize: "27px", 
+                                    color: "#000000", 
+                                    mt: "-0.4vh"}}/>
                     </Button>
                     <IconButton sx={{position: "relative", mr: "3vw"}}>
-                        <Avatar alt="Remy Sharp" sx={{height: "80px", width: "80px"}}/>
+                        <Avatar alt="Remy Sharp" sx={{height: "80px", 
+                                                    width: "80px"}}/>
                     </IconButton>
                 </Box>
             </Box>  
