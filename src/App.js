@@ -4,6 +4,9 @@ import About from "./Pages/About";
 import {useState} from "react";
 import {CurrentPageContext} from "./Contexts/CurrentPageContext";
 import GlobalMenubar from "./Components/global_menubar";
+import RoundedButton from "./Components/RoundedButton";
+import RoundedLogoButton from "./Components/RoundedLogoButton";
+import Login from "./Pages/Login";
 
 function App() {
   // Your web app's Firebase configuration
@@ -20,13 +23,14 @@ function App() {
   const app = initializeApp(firebaseConfig);
 
   //States
-  const [currentPage, setCurrentPage] = useState("About");
+  const [currentPage, setCurrentPage] = useState("Login");
 
   return (
     <CurrentPageContext.Provider value={[currentPage, setCurrentPage]}>
       <div className="App">
         <GlobalMenubar />
         {currentPage === "About" && <About />}
+        {currentPage === "Login" && <Login/>}
       </div>
     </CurrentPageContext.Provider>
   );

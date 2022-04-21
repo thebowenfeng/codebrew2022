@@ -3,7 +3,7 @@
 }
 
 .App {
-  background: linear-gradient(to bottom, rgba(80, 121, 130, 0.6), 
+  background: linear-gradient(to bottom, rgba(80, 121, 130, 0.6),
               rgba(107, 135, 61, 0.5), rgba(177, 146, 35, 0.6));
   /* background-color: blue; */
   min-height: 100vh;
@@ -15,4 +15,12 @@
   align-items: center;
   justify-content: center;
   width: 30vw
+}
+
+.Login-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40vw
 }
