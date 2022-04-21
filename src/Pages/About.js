@@ -20,33 +20,22 @@ export default function About(){
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
-                justifyContent: "center"
+                justifyContent: "center",
+                marginTop: "10vh"
             }}>
-                <div style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "30vw"
-                }}>
+                <div className={"About-description"}>
                     <h1 style={{fontSize: "5vh"}}>Why we do</h1>
-                    <h1>website description:  why we do, what we do,
+                    <p style={{marginTop: "5vh", width: "25vw", fontSize: "3vh"}}>website description:  why we do, what we do,
                         Focus on the creator
                         Design ideas on the waste can do
-                        Request materials based on the project</h1>
+                        Request materials based on the project</p>
                 </div>
-                <div style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "30vw"
-                }}>
+                <div className={"About-description"}>
                     <h1 style={{fontSize: "5vh"}}>What we do</h1>
-                    <h1>website description:  why we do, what we do,
+                    <p style={{marginTop: "5vh", width: "25vw", fontSize: "3vh"}}>website description:  why we do, what we do,
                         Focus on the creator
                         Design ideas on the waste can do
-                        Request materials based on the project</h1>
+                        Request materials based on the project</p>
                 </div>
             </div>
         </div>

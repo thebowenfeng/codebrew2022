@@ -16,3 +16,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.About-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30vw
+}
