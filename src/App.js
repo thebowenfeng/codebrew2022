@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import { initializeApp } from "firebase/app"
+import About from "./Pages/About";
+import {useState} from "react";
+import {CurrentPageContext} from "./Contexts/CurrentPageContext";
 
 function App() {
   // Your web app's Firebase configuration
@@ -16,23 +19,16 @@ function App() {
 // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
+  //States
+  const [currentPage, setCurrentPage] = useState("About");
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CurrentPageContext.Provider value={[currentPage, setCurrentPage]}>
+      <div className="App">
+        {currentPage === "About" && <About />}
+      </div>
+    </CurrentPageContext.Provider>
   );
 }
 
