@@ -12,7 +12,7 @@ export default function About(){
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                marginTop: "20vh"
+                marginTop: "15vh"
             }}>
                 <h1 style={{fontSize: "10vh"}}>Ready to Recycle?</h1>
             </div>

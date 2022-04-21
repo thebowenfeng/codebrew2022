@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app"
 import About from "./Pages/About";
 import {useState} from "react";
 import {CurrentPageContext} from "./Contexts/CurrentPageContext";
+import GlobalMenubar from "./Components/global_menubar";
 
 function App() {
   // Your web app's Firebase configuration
@@ -24,6 +25,7 @@ function App() {
   return (
     <CurrentPageContext.Provider value={[currentPage, setCurrentPage]}>
       <div className="App">
+        <GlobalMenubar />
         {currentPage === "About" && <About />}
       </div>
     </CurrentPageContext.Provider>
