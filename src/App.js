@@ -1,5 +1,8 @@
 import './App.css';
 import { initializeApp } from "firebase/app"
+import About from "./Pages/About";
+import {useState} from "react";
+import {CurrentPageContext} from "./Contexts/CurrentPageContext";
 
 function App() {
   // Your web app's Firebase configuration
@@ -15,12 +18,16 @@ function App() {
 // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
+  //States
+  const [currentPage, setCurrentPage] = useState("About");
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Hello</h1>
-      </header>
-    </div>
+    <CurrentPageContext.Provider value={[currentPage, setCurrentPage]}>
+      <div className="App">
+        {currentPage === "About" && <About />}
+      </div>
+    </CurrentPageContext.Provider>
   );
 }
 
