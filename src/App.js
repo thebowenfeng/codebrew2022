@@ -21,7 +21,6 @@ function App() {
   //States
   const [currentPage, setCurrentPage] = useState("About");
 
-
   return (
     <CurrentPageContext.Provider value={[currentPage, setCurrentPage]}>
       <div className="App">
