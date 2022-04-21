@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Public+Sans:ital,wght@1,200&display=swap');
 
-h1, body{
+h1, body, p{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -9,6 +9,6 @@ h1 {
   font-family: 'Comfortaa';
 }
 
-p {
+body, p{
   font-family: 'Public Sans';
 }
