@@ -2,7 +2,6 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
@@ -10,6 +9,7 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 import { useContext } from "react";
 import { UserContext } from "../Contexts/UserContext";
 import { CurrentPageContext } from "../Contexts/CurrentPageContext";
+import {MenuItem, Menu} from "@mui/material";
 
 import a from "../Photos/a.png";
 import b from "../Photos/b.png";
@@ -97,7 +97,9 @@ export default function GlobalMenubar(){
                             color: "#000000",
                             fontFamily: "Comfortaa",
                             fontWeight: "bold",
-                            height: "50%"}}>
+                            height: "50%"}} onClick={() => {
+                                setCurrentPage("Market");
+                    }}>
                         Market
                     </Button>
                     <Button sx={{fontSize: "25px",

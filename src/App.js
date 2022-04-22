@@ -16,23 +16,24 @@ import NewListing from "./Pages/NewListing";
 
 function App() {
 	//States
-	const [currentPage, setCurrentPage] = useState("About");
+	const [currentPage, setCurrentPage] = useState("Market");
 	const [user, setUser] = useState(null);
 
 	return (
 		<CurrentPageContext.Provider value={[currentPage, setCurrentPage]}>
 			<UserContext.Provider value={[user, setUser]}>
 				<div className="App">
-					<GlobalMenubar />
-					{currentPage === "About" && <About />}
-					{currentPage === "Login" && <Login />}
-					{currentPage === "Register" && <Register />}
-					{currentPage === "Market" && <Market />}
-          {currentPage === "NewPosting" && <NewListing/>}
+					<GlobalMenubar/>
+					{currentPage === "About" && <About/>}
+					{currentPage === "Login" && <Login/>}
+					{currentPage === "Register" && <Register/>}
+					{currentPage === "Market" && <Market/>}
+					{currentPage === "NewPosting" && <NewListing/>}
 				</div>
 			</UserContext.Provider>
 		</CurrentPageContext.Provider>
 	);
+}
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
