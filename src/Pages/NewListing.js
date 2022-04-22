@@ -1,6 +1,6 @@
 import {RoundedTextBox} from "../Components/RoundedTextBox";
 import {RoundedDropDown} from "../Components/RoundedDropDown";
-import {Checkbox, FormControlLabel, MenuItem, RadioGroup} from "@mui/material";
+import {Checkbox, FormControlLabel, MenuItem, Modal, RadioGroup} from "@mui/material";
 import Radio from '@mui/material/Radio'
 import {useContext, useEffect, useRef, useState} from "react";
 import RoundedButton from "../Components/RoundedButton";
@@ -21,6 +21,7 @@ export default function NewListing(){
     const priceRef = useRef(null);
     const descriptionRef = useRef(null);
     const usesRef = useRef(null);
+    const [open, setOpen] = useState(false);
 
     const [currentPage, setCurrentPage] = useContext(CurrentPageContext);
     const [user, setUser] = useContext(UserContext);
@@ -48,7 +49,7 @@ export default function NewListing(){
         return true;
     }
 
-    const uploadClick = async () => {
+    const uploadClick =async () => {
         if(titleRef.current.value === ""){
             alert("Title cannot be empty")
         }else if(typeRef.current.value === undefined){
@@ -102,6 +103,7 @@ export default function NewListing(){
                 }
             })
         }
+        setOpen(false);
     }
 
     function imageUploadButton(id){
@@ -138,6 +140,10 @@ export default function NewListing(){
             marginTop: "4vh",
             width: "80vw"
         }}>
+            <Modal open={open}>
+                <h1>Loading...</h1>
+            </Modal>
+
             <div className={"New-posting-field"}>
                 <h1>Title: </h1>
                 <RoundedTextBox style={{
@@ -233,7 +239,10 @@ export default function NewListing(){
             }}>
                 <RoundedButton style={{
                     width: "20vw"
-                }} onClick={uploadClick}>Post</RoundedButton>
+                }} onClick={() => {
+                    setOpen(true);
+                    uploadClick();
+                }}>Post</RoundedButton>
             </div>
         </div>
     )
