@@ -38,9 +38,20 @@ import x from "../Photos/x.png";
 import y from "../Photos/y.png";
 import z from "../Photos/z.png";
 
-export default function GlobalMenubar() {
-	const [user, setUser] = useContext(UserContext);
-	const [currentPage, setCurrentPage] = useContext(CurrentPageContext);
+
+export default function GlobalMenubar(){
+    const loginDropBox = ['Personal Profile', 'My listing'];
+    const [user, setUser] = useContext(UserContext);
+	  const [currentPage, setCurrentPage] = useContext(CurrentPageContext);
+    const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+    const handleOpenUserMenu = (event) => {
+        setAnchorElUser(event.currentTarget);
+    };
+
+    const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
+    };
 
 	const profilePic = {
 		a: a,
@@ -71,115 +82,98 @@ export default function GlobalMenubar() {
 		z: z,
 	};
 
-	return (
-		<div>
-			<Box
-				fullWidth
-				sx={{ display: "flex", justifyContent: "space-between" }}
-			>
-				<Box sx={{ width: "fit-content", display: "flex" }}>
-					<Box>
-						<Avatar
-							src="https://pbs.twimg.com/profile_images/1455185376876826625/s1AjSxph_400x400.jpg"
-							sx={{ height: "12vh", width: "12vh" }}
-						/>
-					</Box>
-					<Button
-						sx={{
-							fontSize: "25px",
-							position: "relative",
-							ml: "3.5vw",
-							mt: "3.1vh",
-							color: "#000000",
-							fontFamily: "Comfortaa",
-							fontWeight: "bold",
-							height: "50%",
-						}}
-						onClick={() => setCurrentPage("Market")}
-					>
-						Market
-					</Button>
-					<Button
-						sx={{
-							fontSize: "25px",
-							position: "relative",
-							ml: "3.5vw",
-							mt: "3.1vh",
-							color: "#000000",
-							fontFamily: "Comfortaa",
-							fontWeight: "bold",
-							height: "50%",
-						}}
-					>
-						Buy Requests
-					</Button>
-					<Button
-						sx={{
-							fontSize: "25px",
-							position: "relative",
-							ml: "3.5vw",
-							mt: "3.1vh",
-							color: "#000000",
-							fontFamily: "Comfortaa",
-							fontWeight: "bold",
-							height: "50%",
-						}}
-						onClick={() => setCurrentPage("About")}
-					>
-						About us
-					</Button>
-				</Box>
-				<Box sx={{ width: "fit-content", display: "flex" }}>
-					<Button
-						sx={{
-							fontSize: "25px",
-							position: "relative",
-							mr: "3vw",
-							mt: "3.1vh",
-							color: "#000000",
-							fontFamily: "Comfortaa",
-							fontWeight: "bold",
-							height: "50%",
-						}}
-					>
-						Create listing
-						<AddBoxIcon
-							sx={{
-								fontSize: "27px",
-								color: "#000000",
-								mt: "-0.4vh",
-							}}
-						/>
-					</Button>
-					{user != null && (
-						<IconButton sx={{ position: "relative", mr: "3vw" }}>
-							<Avatar
-								alt="Remy Sharp"
-								sx={{ height: "80px", width: "80px" }}
-								src={profilePic[user.username[0].toLowerCase()]}
-							/>
-						</IconButton>
-					)}
-					{user == null && (
-						<Button
-							sx={{
-								fontSize: "25px",
-								position: "relative",
-								ml: "1vw",
-								marginRight: "3vw",
-								mt: "3.1vh",
-								color: "#000000",
-								fontFamily: "Comfortaa",
-								fontWeight: "bold",
-								height: "50%",
-							}}
-							onClick={() => setCurrentPage("Login")}
-						>
-							Login
-						</Button>
-					)}
-				</Box>
-			</Box>
-		</div>
-	);
+    return (
+        <div>
+            <Box fullWidth sx={{display: "flex", justifyContent: "space-between"}}>
+                <Box sx={{width: "fit-content", display: "flex"}}>
+                    <Box>
+                        <Avatar src="https://pbs.twimg.com/profile_images/1455185376876826625/s1AjSxph_400x400.jpg"
+                        sx={{height: "12vh", width: "12vh"}}/>
+                    </Box>
+                    <Button sx={{fontSize: "25px",
+                            position: 'relative',
+                            ml: "3.5vw",
+                            mt: "3.1vh",
+                            color: "#000000",
+                            fontFamily: "Comfortaa",
+                            fontWeight: "bold",
+                            height: "50%"}}>
+                        Market
+                    </Button>
+                    <Button sx={{fontSize: "25px",
+                            position: 'relative',
+                            ml: "3.5vw",
+                            mt: "3.1vh",
+                            color: "#000000",
+                            fontFamily: "Comfortaa",
+                            fontWeight: "bold",
+                            height: "50%"}}>
+                        Buy Requests
+                    </Button>
+                    <Button sx={{fontSize: "25px",
+                            position: 'relative',
+                            ml: "3.5vw",
+                            mt: "3.1vh",
+                            color: "#000000",
+                            fontFamily: "Comfortaa",
+                            fontWeight: "bold",
+                            height: "50%"}} onClick={() => setCurrentPage("About")}>
+                        About us
+                    </Button>
+                </Box>
+                <Box sx={{width: "fit-content", display: "flex"}}>
+                    <Button sx={{fontSize: "25px",
+                            position: "relative",
+                            mr: "3vw",
+                            mt: "3.1vh",
+                            color: "#000000",
+                            fontFamily: "Comfortaa",
+                            fontWeight: "bold",
+                            height: "50%"}} onClick={() => {
+                                setCurrentPage("NewPosting");
+                    }}>
+                        Create listing
+                        <AddBoxIcon sx={{fontSize: "27px",
+                                    color: "#000000",
+                                    mt: "-0.4vh"}}/>
+                    </Button>
+                    {user != null && <Box>
+                        <Tooltip title="My account">
+                            <IconButton sx={{position: "relative", mr: "3vw"}}
+                                        onClick={handleOpenUserMenu}>
+                                <Avatar alt="Remy Sharp" sx={{height: "80px",
+                                                            width: "80px"}}
+                                        src={profilePic[user.username[0].toLowerCase()]}
+                            />
+                            </IconButton>
+                        </Tooltip>
+                        <Menu anchorEl={anchorElUser}
+                            keepMounted
+                            open={Boolean(anchorElUser)}
+                            onClose={handleCloseUserMenu}>
+                                {loginDropBox.map((loginDropBoxs) => (
+                                    <MenuItem key={loginDropBoxs}
+                                        onClick={handleCloseUserMenu}>
+                                            <Typography textAlign="center">
+                                                {loginDropBoxs}
+                                            </Typography>
+                                    </MenuItem>
+                                ))}
+                        </Menu>
+                    </Box>}
+                    {user == null && <Button sx={{fontSize: "25px",
+                        position: 'relative',
+                        ml: "1vw",
+                        marginRight: "3vw",
+                        mt: "3.1vh",
+                        color: "#000000",
+                        fontFamily: "Comfortaa",
+                        fontWeight: "bold",
+                        height: "50%"}} onClick={() => setCurrentPage("Login")}>
+                        Login
+                    </Button>}
+                </Box>
+            </Box>
+        </div>
+    );
 }

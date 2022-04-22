@@ -12,6 +12,7 @@ import About from "./Pages/About";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Market from "./Pages/Market";
+import NewListing from "./Pages/NewListing";
 
 function App() {
 	//States
@@ -27,11 +28,11 @@ function App() {
 					{currentPage === "Login" && <Login />}
 					{currentPage === "Register" && <Register />}
 					{currentPage === "Market" && <Market />}
+          {currentPage === "NewPosting" && <NewListing/>}
 				</div>
 			</UserContext.Provider>
 		</CurrentPageContext.Provider>
 	);
-}
 
 // Your web app's Firebase configuration
 const firebaseConfig = {

@@ -18,5 +18,8 @@ const CssTextField = styled(TextField)({
 });
 
 export const RoundedTextBox = forwardRef((props, ref) => (
-    <CssTextField inputProps={{style: props.style}} type={props.type} inputRef={ref}/>
+    <CssTextField
+        inputProps={{style: props.style}} type={props.type} inputRef={ref} disabled={props.disabled} multiline={props.multiline}
+        rows={props.rows}
+    />
 ));

@@ -12,7 +12,7 @@ export default function RoundedButton(props){
     }));
 
     return (
-        <ColorButton sx={props.style} onClick={props.onClick}>
+        <ColorButton sx={props.style} onClick={props.onClick} component={props.component}>
             <h1>{props.children}</h1>
         </ColorButton>
     )
