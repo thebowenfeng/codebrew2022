@@ -11,6 +11,7 @@ import RoundedLogoButton from "./Components/RoundedLogoButton";
 import About from "./Pages/About";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import AccountListing from './Pages/MyAccount_MyListing';
 import Market from "./Pages/Market";
 import NewListing from "./Pages/NewListing";
 
@@ -24,6 +25,7 @@ function App() {
 			<UserContext.Provider value={[user, setUser]}>
 				<div className="App">
 					<GlobalMenubar/>
+          {currentPage == "My Listing" && <AccountListing />}
 					{currentPage === "About" && <About/>}
 					{currentPage === "Login" && <Login/>}
 					{currentPage === "Register" && <Register/>}

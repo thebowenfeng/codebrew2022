@@ -40,7 +40,7 @@ import z from "../Photos/z.png";
 
 
 export default function GlobalMenubar(){
-    const loginDropBox = ['Personal Profile', 'My listing'];
+    const loginDropBox = ['Personal Profile', "My Listing"];
     const [user, setUser] = useContext(UserContext);
 	  const [currentPage, setCurrentPage] = useContext(CurrentPageContext);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -155,7 +155,11 @@ export default function GlobalMenubar(){
                             onClose={handleCloseUserMenu}>
                                 {loginDropBox.map((loginDropBoxs) => (
                                     <MenuItem key={loginDropBoxs}
-                                        onClick={handleCloseUserMenu}>
+                                        onClick={() => {
+                                            handleCloseUserMenu();
+                                            setCurrentPage(loginDropBoxs);
+                                            //alert(loginDropBoxs);
+                                        }}>
                                             <Typography textAlign="center">
                                                 {loginDropBoxs}
                                             </Typography>
