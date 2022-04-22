@@ -2,7 +2,8 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
@@ -39,8 +40,18 @@ import y from "../Photos/y.png";
 import z from "../Photos/z.png";
 
 export default function GlobalMenubar(){
+    const loginDropBox = ['Personal Profile', 'My listing'];
     const [user, setUser] = useContext(UserContext);
     const [currentPage, setCurrentPage] = useContext(CurrentPageContext);
+    const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+    const handleOpenUserMenu = (event) => {
+        setAnchorElUser(event.currentTarget);
+    };
+
+    const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
+    };
 
     const profilePic = {
         a:a,
@@ -124,12 +135,30 @@ export default function GlobalMenubar(){
                                     color: "#000000",
                                     mt: "-0.4vh"}}/>
                     </Button>
-                    {user != null && <IconButton sx={{position: "relative", mr: "3vw"}}>
-                        <Avatar alt="Remy Sharp" sx={{height: "80px",
-                                                    width: "80px"}}
-                                src={profilePic[user.username[0].toLowerCase()]}
-                        />
-                    </IconButton>}
+                    {user != null && <Box>
+                        <Tooltip title="My account">
+                            <IconButton sx={{position: "relative", mr: "3vw"}}
+                                        onClick={handleOpenUserMenu}>
+                                <Avatar alt="Remy Sharp" sx={{height: "80px",
+                                                            width: "80px"}}
+                                        src={profilePic[user.username[0].toLowerCase()]}
+                            />
+                            </IconButton>
+                        </Tooltip>
+                        <Menu anchorEl={anchorElUser}
+                            keepMounted
+                            open={Boolean(anchorElUser)}
+                            onClose={handleCloseUserMenu}>
+                                {loginDropBox.map((loginDropBoxs) => (
+                                    <MenuItem key={loginDropBoxs}
+                                        onClick={handleCloseUserMenu}>
+                                            <Typography textAlign="center">
+                                                {loginDropBoxs}
+                                            </Typography>
+                                    </MenuItem>
+                                ))}
+                        </Menu>
+                    </Box>}
                     {user == null && <Button sx={{fontSize: "25px",
                         position: 'relative',
                         ml: "1vw",
