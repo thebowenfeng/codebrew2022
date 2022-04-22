@@ -34,7 +34,7 @@ export default function Login(){
                         username: docSnap.data().username,
                         phone: docSnap.data().phone
                     });
-                    setCurrentPage("About");
+                    setCurrentPage("Market");
                 }else{
                     alert("ERROR: User document does not exist");
                 }
@@ -60,7 +60,7 @@ export default function Login(){
                 email: result.user.email,
                 phone: result.user.phoneNumber == null ? "" : result.user.phoneNumber,
             })
-            setCurrentPage("About");
+            setCurrentPage("Market");
         }).catch((error) => {
             alert("ERROR: " + error.message);
         })
@@ -82,7 +82,7 @@ export default function Login(){
                 email: result.user.email,
                 phone: result.user.phoneNumber == null ? "" : result.user.phoneNumber,
             })
-            setCurrentPage("About");
+            setCurrentPage("Market");
         }).catch((error) => {
             alert("ERROR: " + error.message);
         })
