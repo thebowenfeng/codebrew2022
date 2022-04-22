@@ -1,27 +1,59 @@
-.search-bar-container {
+.market-page {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-bar-container {
+    height: 60px;
+    width: 70%;
 }
 
 .search-bar-container form {
-    min-width: 60rem;
-    /* height: 60px; */
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
+    height: 100%;
 }
 
-.search-bar-container span {
-    display: inline-block;
-    font-size: 30px;
-    height: 60px;
-    background-color: aqua;
+.search-bar-container label {
+    width: 20%;
+    min-width: 150px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    background-color: rgb(170, 222, 212);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
 }
 
 .search-bar-container #header-search {
-    min-width: 50vw;
-    height: 60px;
+    width: 70%;
+    height: 97%;
     padding-left: 20px;
     font-size: 20px;
     border: none;
+}
+
+.search-bar-container #submit-button {
+    width: 10%;
+    height: 100%;
+    border: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: 20px;
+    background-color: rgb(170, 222, 212);
+}
+
+.search-bar-container #submit-button:hover{
+    cursor: pointer;
+    background-color: rgb(201, 255, 244);
+    transition-duration: 0.1s;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
 }

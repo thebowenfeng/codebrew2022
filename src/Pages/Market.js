@@ -5,11 +5,11 @@ import { List } from "@mui/material";
 
 function Market() {
     return (
-		<div>
+		<div className="market-page">
 			<div className="search-bar-container">
 				<form role="search" action="/" method="get">
 					<label htmlFor="header-search">
-						<span className="prompt">I'm looking for</span>
+						<p id="search-label">I'm looking for</p>
 					</label>
 					<input
 						type="text"
@@ -17,11 +17,15 @@ function Market() {
 						placeholder="Items"
 						name="s"
 					/>
-					<button type="submit">Search</button>
+					<button id="submit-button" type="submit">
+						<p>GO</p>
+					</button>
 				</form>
 			</div>
 			<div className="content">
-				<div className="categories"></div>
+				<div className="categories">
+                    <h1>Some categories</h1>
+                </div>
 				<div className="listings">
 					<Listing />
 					<Listing />
@@ -31,7 +35,7 @@ function Market() {
 					<Listing />
 					<Listing />
 					<Listing />
-                    <Listing />
+					<Listing />
 				</div>
 			</div>
 		</div>

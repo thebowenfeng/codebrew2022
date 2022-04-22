@@ -3,16 +3,23 @@
     margin-right: 100px;
     display: flex;
     justify-content: space-between;
-    width: 60vw;
+    width: 60%;
     height: 130px;
-    float: right;
+    /* float: right; */
     background-color: #D3DFC8;
     border-radius: 4px;
 }
 
+.listing-container:hover {
+    width: 61%;
+    height: 140px;
+    transition-duration: 50ms;
+    cursor: pointer;
+}
+
 .listing-image {
-    width: 20%;
     height: 100%;
+    aspect-ratio: 1;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
 }
@@ -20,7 +27,6 @@
 .description-container {
     width: 60%;
     margin: 17px;
-    /* background-color: blue; */
 }
 
 .description-title {
