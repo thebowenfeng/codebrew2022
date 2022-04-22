@@ -193,7 +193,12 @@ export default function NewListing(){
                 <RoundedTextBox style={{
                     fontSize: "2vh",
                     width: "42vw"
-                }} type={"number"} disabled={negotiate} ref={priceRef}/>
+                }} type={"number"} disabled={negotiate} ref={priceRef} 
+                onChange={(event) => {
+                    if (priceRef.current.value < 0){
+                        priceRef.current.value = 0;
+                    }
+                }}/>
             </div>
             <div className={"New-posting-field"}>
                 <h1>Description: </h1>

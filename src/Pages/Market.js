@@ -117,13 +117,17 @@ function Market(props) {
 					<h1 style={{fontSize: "2vh"}}>Within distance (km)</h1>
 					<RoundedTextBox type={"number"} ref={distRef} onChange={(event) => {
 						setMaxDist(event.target.value);
+						if (distRef.current.value < 0){
+							distRef.current.value = 0;
+						}
 					}}/>
 					<RoundedButton style={{fontSize: "1vh", width: "10vw"}} onClick={() => {
 						setCategory("");
 						setMaxDist(999999999999);
 						setSearch(null);
 						distRef.current.value = "";
-					}}>Reset</RoundedButton>
+					}}
+					>Reset</RoundedButton>
                 </div>
 				<div className={"listing"}>
 					{posts != null && posts.map((post) => {
