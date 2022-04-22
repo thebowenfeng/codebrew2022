@@ -12,6 +12,7 @@ import Register from "./Pages/Register";
 import AccountListing from './Pages/MyAccount_MyListing';
 import Market from "./Pages/Market";
 import NewListing from "./Pages/NewListing";
+import PersonalProfile from "./Pages/MyAccount_Profile";
 
 function App() {
 	//States
@@ -30,6 +31,7 @@ function App() {
 					{currentPage === "Market" && <Market type={"sell"} label={"I'm looking to buy"}/>}
 					{currentPage === "BuyRequest" && <Market type={"buy"} label={"I'm looking to sell"}/>}
 					{currentPage === "NewPosting" && <NewListing/>}
+					{currentPage === "Personal Profile" && <PersonalProfile/>}
 				</div>
 			</UserContext.Provider>
 		</CurrentPageContext.Provider>
