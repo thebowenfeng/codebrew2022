@@ -142,7 +142,7 @@ function Market(props) {
 							getImageUrl(post);
 						}
 
-						if((category === null || post.category === category) &&
+						if((category === "" || post.category === category) &&
 							(location === null || getDistance(location.latitude, location.longitude, post.location.latitude, post.location.longitude) < maxDist) &&
 							(search == null || stringSimilarity.compareTwoStrings(search, post.title) >= 0.5)
 						){
