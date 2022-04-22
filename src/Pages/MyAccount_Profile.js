@@ -65,7 +65,7 @@ export default function PersonalProfile(){
                                 phone: phoneNumberRef.current.value,
                                 email: user.email
                             });
-                            alert("Success")
+                            alert("Success");
                         }catch(error){
                             alert("ERROR: " + error.message);
                         }

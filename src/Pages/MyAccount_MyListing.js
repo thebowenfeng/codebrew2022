@@ -133,7 +133,7 @@ export default function AccountListing(){
                                 </Box>
                                 <Box sx={{position: 'relative', ml: '0.5vw', 
                                     overflow: 'auto'}}>
-                                    price:
+                                    Price:
                                     <Box>${sellItems.price}</Box>
                                     <Box sx={{position: 'relative', mt: '2vh'}}>
                                     <FormControl>
@@ -209,7 +209,7 @@ export default function AccountListing(){
                                         </Box>
                                         <Box sx={{position: 'relative', ml: '0.5vw', 
                                             overflow: 'auto'}}>
-                                            price:
+                                            Budget:
                                             <Box>${requestItems.price}</Box>
                                             <Box sx={{position: 'relative', mt: '2vh'}}>
                                             <FormControl>
@@ -237,7 +237,11 @@ export default function AccountListing(){
                                                 </FormControl>
                                             </Box>
                                             <Box sx={{position: 'relative', ml: '2vw'}}>
-                                                <Button><RemoveCircleIcon /></Button>
+                                                <Button onClick={async (event) =>{
+                                                alert("Item deleted");
+                                                await deleteDoc(doc(db, "buy", requestItems.id));
+                                                setRefresh(!refresh);
+                                            }}><RemoveCircleIcon /></Button>
                                             </Box>
                                         </Box>
                                     </Box>
