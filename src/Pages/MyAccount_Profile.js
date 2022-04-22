@@ -53,7 +53,7 @@ export default function PersonalProfile(){
             </Box>
             <Box fullWidth sx={{textAlign: 'center'}}>
                 <RoundedButton onClick={async (event) => {
-                    if(userNameRef === ""){
+                    if(userNameRef.current.value === ""){
                         alert("Username cannot be empty")
                     }else{
                         var newDetails = {uid: user.uid, phone: phoneNumberRef.current.value, email: user.email,
