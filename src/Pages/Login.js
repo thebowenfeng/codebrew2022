@@ -4,7 +4,7 @@ import RoundedLogoButton from "../Components/RoundedLogoButton";
 import {useContext, useRef} from "react";
 
 import { getAuth, signInWithEmailAndPassword, FacebookAuthProvider, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import {getFirestore, doc, getDoc, setDoc} from "firebase/firestore";
 import {app} from "../App";
 import {CurrentPageContext} from "../Contexts/CurrentPageContext";
 import {UserContext} from "../Contexts/UserContext";
@@ -47,12 +47,18 @@ export default function Login(){
     const fbLoginClick = () => {
         const provider = new FacebookAuthProvider();
 
-        signInWithPopup(auth, provider).then((result) => {
+        signInWithPopup(auth, provider).then(async (result) => {
             setUser({
                 username: result.user.displayName,
                 email: result.user.email,
-                phone: result.user.phoneNumber,
+                phone: result.user.phoneNumber == null ? "" : result.user.phoneNumber,
                 uid: result.user.uid
+            })
+
+            await setDoc(doc(db, "users", result.user.uid), {
+                username: result.user.displayName,
+                email: result.user.email,
+                phone: result.user.phoneNumber == null ? "" : result.user.phoneNumber,
             })
             setCurrentPage("About");
         }).catch((error) => {
@@ -63,12 +69,18 @@ export default function Login(){
     const googleLoginClick = () => {
         const provider = new GoogleAuthProvider();
 
-        signInWithPopup(auth, provider).then((result) => {
+        signInWithPopup(auth, provider).then(async (result) => {
             setUser({
                 username: result.user.displayName,
                 email: result.user.email,
-                phone: result.user.phoneNumber,
+                phone: result.user.phoneNumber == null ? "" : result.user.phoneNumber,
                 uid: result.user.uid
+            })
+
+            await setDoc(doc(db, "users", result.user.uid), {
+                username: result.user.displayName,
+                email: result.user.email,
+                phone: result.user.phoneNumber == null ? "" : result.user.phoneNumber,
             })
             setCurrentPage("About");
         }).catch((error) => {

@@ -18,6 +18,15 @@ export default function Detailed(props){
             const docSnap = await getDoc(doc(db, props.type, props.postID))
             if(docSnap.exists()){
                 var data = {...docSnap.data()};
+                const userData = await getDoc(doc(db, "users", docSnap.data().user));
+                if(userData.exists()){
+                    data.phone = userData.data().phone;
+                    data.email = userData.data().email;
+                }else{
+                    data.phone = "";
+                    data.email = "";
+                }
+
                 if(docSnap.data().photos.length > 0){
                     for(var i = 0; i < docSnap.data().photos.length; i++){
                         data.photos[i] = await getDownloadURL(ref(storage, docSnap.data().photos[i]));

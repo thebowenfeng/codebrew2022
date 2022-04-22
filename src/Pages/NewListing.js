@@ -87,8 +87,6 @@ export default function NewListing(){
                 try{
                     await setDoc(doc(db, listType, postID), {
                         user: user.uid,
-                        phone: user.phone,
-                        email: user.email,
                         title: titleRef.current.value,
                         category: typeRef.current.value,
                         price: priceVal,
