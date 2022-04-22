@@ -129,7 +129,9 @@ export default function GlobalMenubar(){
                             color: "#000000",
                             fontFamily: "Comfortaa",
                             fontWeight: "bold",
-                            height: "50%"}}>
+                            height: "50%"}} onClick={() => {
+                                setCurrentPage("NewPosting");
+                    }}>
                         Create listing
                         <AddBoxIcon sx={{fontSize: "27px",
                                     color: "#000000",

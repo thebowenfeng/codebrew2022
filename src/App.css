@@ -24,3 +24,11 @@
   justify-content: center;
   width: 40vw
 }
+
+.New-posting-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  column-gap: 2vw
+}

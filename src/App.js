@@ -9,10 +9,11 @@ import RoundedButton from "./Components/RoundedButton";
 import RoundedLogoButton from "./Components/RoundedLogoButton";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import NewListing from "./Pages/NewListing";
 
 function App() {
   //States
-  const [currentPage, setCurrentPage] = useState("About");
+  const [currentPage, setCurrentPage] = useState("NewPosting");
   const [user, setUser] = useState(null);
 
   return (
@@ -23,6 +24,7 @@ function App() {
           {currentPage === "About" && <About />}
           {currentPage === "Login" && <Login/>}
           {currentPage === "Register" && <Register/>}
+          {currentPage === "NewPosting" && <NewListing/>}
         </div>
       </UserContext.Provider>
     </CurrentPageContext.Provider>
