@@ -3,16 +3,16 @@
     margin-right: 100px;
     display: flex;
     justify-content: space-between;
-    width: 60%;
-    height: 130px;
+    width: 55vw;
+    height: 13vh;
     /* float: right; */
     background-color: #D3DFC8;
     border-radius: 4px;
 }
 
 .listing-container:hover {
-    width: 61%;
-    height: 140px;
+    width: 57vw;
+    height: 14vh;
     transition-duration: 50ms;
     cursor: pointer;
 }

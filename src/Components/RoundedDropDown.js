@@ -16,7 +16,7 @@ export const RoundedDropDown = forwardRef((props, ref) => (
         },
         textAlign: "center",
         ...props.style
-    }} inputRef={ref}>
+    }} inputRef={ref} onChange={props.onChange}>
         {props.children}
     </Select>
 ));

@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="644cf6b3-62e6-4dfd-ac2e-253450b430dc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/global_menubar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/global_menubar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Listing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Listing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/RoundedDropDown.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RoundedDropDown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/RoundedTextBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RoundedTextBox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Market.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Market.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Styles/Listing.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/Listing.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Styles/Market.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/Market.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
