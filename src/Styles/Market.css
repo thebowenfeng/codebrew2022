@@ -1,0 +1,27 @@
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar-container form {
+    min-width: 60rem;
+    /* height: 60px; */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.search-bar-container span {
+    display: inline-block;
+    font-size: 30px;
+    height: 60px;
+    background-color: aqua;
+}
+
+.search-bar-container #header-search {
+    min-width: 50vw;
+    height: 60px;
+    padding-left: 20px;
+    font-size: 20px;
+    border: none;
+}
