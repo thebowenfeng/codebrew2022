@@ -18,12 +18,14 @@ function Market(props) {
 	const [posts, setPosts] = useState(null);
 	const [location, setLocation] = useState(null);
 	const [preview, setPreview] = useState({});
-	const [category, setCategory] = useState(null);
+	const [category, setCategory] = useState("");
 	const [maxDist, setMaxDist] = useState(9999999999);
 	const [search, setSearch] = useState(null);
 	const searchRef = useRef(null);
 	const [openModal, setOpenModal] = useState(false);
 	const [currPostID, setCurrPostID] = useState(null);
+	const distRef = useRef(null);
+	const categoryRef = useRef(null);
 
 	function getDistance(lat1,lon1,lat2,lon2) {
 		var R = 6371; // Radius of the earth in km
@@ -102,7 +104,7 @@ function Market(props) {
 						width: "15vw",
 					}} onChange={(event) => {
 						setCategory(event.target.value);
-					}}>
+					}} value={category}>
 						<MenuItem value={"Electronic"}>Electronic</MenuItem>
 						<MenuItem value={"Paper"}>Paper</MenuItem>
 						<MenuItem value={"Cardboard"}>Cardboard</MenuItem>
@@ -113,13 +115,14 @@ function Market(props) {
 						<MenuItem value={"Other"}>Other</MenuItem>
 					</RoundedDropDown>
 					<h1 style={{fontSize: "2vh"}}>Within distance (km)</h1>
-					<RoundedTextBox type={"number"} onChange={(event) => {
+					<RoundedTextBox type={"number"} ref={distRef} onChange={(event) => {
 						setMaxDist(event.target.value);
 					}}/>
 					<RoundedButton style={{fontSize: "1vh", width: "10vw"}} onClick={() => {
-						setCategory(null);
+						setCategory("");
 						setMaxDist(999999999999);
 						setSearch(null);
+						distRef.current.value = "";
 					}}>Reset</RoundedButton>
                 </div>
 				<div className={"listing"}>
