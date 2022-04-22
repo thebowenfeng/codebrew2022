@@ -10,13 +10,12 @@ import {MenuItem, Menu} from "@mui/material";
 import { collection, query, where, getDocs, getFirestore, setDoc, doc, deleteDoc } from "firebase/firestore";
 import {app} from "../App";
 import RoundedButton from "../Components/RoundedButton";
+import {RoundedTextBox} from "../Components/RoundedTextBox";
 
 export default function PersonalProfile(){
     const [user, setUser] = React.useContext(UserContext);
     const userNameRef = React.useRef(null);
     const phoneNumberRef = React.useRef(null);
-    const [userName, setUserName] = React.useState(user.username);
-    const [phoneNumber, setPhoneNumber] = React.useState(user.phone);
 
     const db = getFirestore(app);
 
@@ -29,41 +28,49 @@ export default function PersonalProfile(){
             </Box>
             <Box sx={{width: '80%', position: 'relative', ml: '10%', mt: '10vh', height: '40vh'}}>
                 <Typography sx={{position: 'relative', ml: '32%', mt: '2vh'}}>
-                    Username: 
+                    Username:
                     <Box>
-                        <TextField defaultValue={userName}
-                            inputRef={userNameRef} sx={{width: '50%'}}/>
+                        <RoundedTextBox defaultValue={user.username}
+                            ref={userNameRef} style={{width: '30vw'}}/>
                     </Box>
                 </Typography>
                 <Typography sx={{position: 'relative', ml: '32%', mt: '2vh'}}>
-                    Email Address: 
+                    Email Address:
                     <Box>
-                        <TextField defaultValue={user.email} disabled
-                            sx={{width: '50%'}}/>
+                        <RoundedTextBox defaultValue={user.email} disabled
+                                        style={{width: '30vw'}}/>
                     </Box>
                 </Typography>
                 <Typography sx={{position: 'relative', ml: '32%', mt: '2vh'}}>
-                    Phone number: 
+                    Phone number:
                     <Box>
-                        <TextField defaultValue={phoneNumber == "" ? "" : phoneNumber}
+                        <RoundedTextBox defaultValue={user.phone === "" ? "" : user.phone}
                             type="number"
-                            inputRef={phoneNumberRef}
-                            sx={{width: '50%'}}/>
+                            ref={phoneNumberRef}
+                            style={{width: '30vw'}}/>
                     </Box>
                 </Typography>
             </Box>
             <Box fullWidth sx={{textAlign: 'center'}}>
                 <RoundedButton onClick={async (event) => {
-                    setUserName(userNameRef.current.value);
-                    setPhoneNumber(phoneNumberRef.current.value);
-                    var newDetails = {uid: user.uid, phone: phoneNumber, email: user.email, 
-                                        username: userName};
-                    setUser(newDetails);
-                    newDetails = {phone: user.phone, email: user.email, username: user.username};
-                    console.log(newDetails.phone + " " + newDetails.email + " " + newDetails.username);
-                    //await setDoc(doc(db, "users", user.uid), newDetails);
-                    alert("Personal information changed");
-                }}>Save</RoundedButton>
+                    if(userNameRef === ""){
+                        alert("Username cannot be empty")
+                    }else{
+                        var newDetails = {uid: user.uid, phone: phoneNumberRef.current.value, email: user.email,
+                            username: userNameRef.current.value};
+                        setUser(newDetails);
+                        try{
+                            await setDoc(doc(db, "users", user.uid), {
+                                username: userNameRef.current.value,
+                                phone: phoneNumberRef.current.value,
+                                email: user.email
+                            });
+                            alert("Success")
+                        }catch(error){
+                            alert("ERROR: " + error.message);
+                        }
+                    }
+                }} style={{fontSize: "1vh", width: "10vw"}}>Save</RoundedButton>
             </Box>
         </div>
     );
