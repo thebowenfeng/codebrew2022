@@ -1,14 +1,15 @@
 import "../Styles/Market.css";
 
+import Listing from "../Components/Listing";
+import { List } from "@mui/material";
+
 function Market() {
     return (
 		<div>
 			<div className="search-bar-container">
 				<form role="search" action="/" method="get">
 					<label htmlFor="header-search">
-						<span className="prompt">
-							I'm looking for
-						</span>
+						<span className="prompt">I'm looking for</span>
 					</label>
 					<input
 						type="text"
@@ -22,7 +23,16 @@ function Market() {
 			<div className="content">
 				<div className="categories"></div>
 				<div className="listings">
-                </div>
+					<Listing />
+					<Listing />
+					<Listing />
+					<Listing />
+					<Listing />
+					<Listing />
+					<Listing />
+					<Listing />
+                    <Listing />
+				</div>
 			</div>
 		</div>
 	);
