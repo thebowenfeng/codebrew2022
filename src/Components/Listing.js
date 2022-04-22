@@ -2,7 +2,7 @@ import "../Styles/Listing.css";
 
 function Listing(props) {
 	return (
-		<div className="listing-container">
+		<div className="listing-container" onClick={props.onClick}>
 			<img
 				className="listing-image"
 				src={props.src}

@@ -100,7 +100,7 @@ export default function GlobalMenubar(){
                             height: "50%"}} onClick={() => {
                                 setCurrentPage("Market");
                     }}>
-                        Market
+                        Selling
                     </Button>
                     <Button sx={{fontSize: "25px",
                             position: 'relative',
@@ -109,8 +109,10 @@ export default function GlobalMenubar(){
                             color: "#000000",
                             fontFamily: "Comfortaa",
                             fontWeight: "bold",
-                            height: "50%"}}>
-                        Buy Requests
+                            height: "50%"}} onClick={() => {
+                                setCurrentPage("BuyRequest");
+                    }}>
+                        Looking to buy
                     </Button>
                     <Button sx={{fontSize: "25px",
                             position: 'relative',

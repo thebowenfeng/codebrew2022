@@ -87,6 +87,8 @@ export default function NewListing(){
                 try{
                     await setDoc(doc(db, listType, postID), {
                         user: user.uid,
+                        phone: user.phone,
+                        email: user.email,
                         title: titleRef.current.value,
                         category: typeRef.current.value,
                         price: priceVal,
@@ -96,7 +98,7 @@ export default function NewListing(){
                         location: new GeoPoint(position.coords.latitude, position.coords.longitude),
                         isComplete: false
                     })
-                    setCurrentPage("About");
+                    setCurrentPage("Market");
                 }catch(error){
                     alert("ERROR: " + error.message);
                 }

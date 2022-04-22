@@ -4,8 +4,6 @@ import { useState } from "react";
 import { CurrentPageContext } from "./Contexts/CurrentPageContext";
 import { UserContext } from "./Contexts/UserContext";
 import GlobalMenubar from "./Components/global_menubar";
-import RoundedButton from "./Components/RoundedButton";
-import RoundedLogoButton from "./Components/RoundedLogoButton";
 
 /* Pages */
 import About from "./Pages/About";
@@ -25,11 +23,12 @@ function App() {
 			<UserContext.Provider value={[user, setUser]}>
 				<div className="App">
 					<GlobalMenubar/>
-          {currentPage == "My Listing" && <AccountListing />}
+          			{currentPage === "My Listing" && <AccountListing />}
 					{currentPage === "About" && <About/>}
 					{currentPage === "Login" && <Login/>}
 					{currentPage === "Register" && <Register/>}
-					{currentPage === "Market" && <Market/>}
+					{currentPage === "Market" && <Market type={"sell"} label={"I'm looking to buy"}/>}
+					{currentPage === "BuyRequest" && <Market type={"buy"} label={"I'm looking to sell"}/>}
 					{currentPage === "NewPosting" && <NewListing/>}
 				</div>
 			</UserContext.Provider>

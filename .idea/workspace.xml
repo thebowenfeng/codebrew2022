@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="644cf6b3-62e6-4dfd-ac2e-253450b430dc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Pages/Detailed.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Listing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Listing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/RoundedDropDown.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RoundedDropDown.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/RoundedTextBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RoundedTextBox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/global_menubar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/global_menubar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pages/Market.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Market.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/Listing.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/Listing.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/Market.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/Market.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/NewListing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/NewListing.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,8 +51,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -60,6 +63,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\85751\Desktop\Projects\codebrew2022\src\Pages" />
       <recent name="C:\Users\85751\Desktop\Projects\codebrew2022\src\Contexts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\codebrew2022" />
     </key>
   </component>
   <component name="RunManager">
@@ -84,6 +90,8 @@
       <updated>1650512780092</updated>
       <workItem from="1650512782779" duration="6675000" />
       <workItem from="1650543677183" duration="15684000" />
+      <workItem from="1650638523472" duration="169000" />
+      <workItem from="1650638701543" duration="11724000" />
     </task>
     <servers />
   </component>

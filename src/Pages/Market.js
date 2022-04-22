@@ -1,7 +1,7 @@
 import "../Styles/Market.css";
 
 import Listing from "../Components/Listing";
-import {List, MenuItem} from "@mui/material";
+import {Backdrop, Fade, MenuItem, Modal} from "@mui/material";
 import {useEffect, useRef, useState} from "react";
 import { collection, query, where, getDocs, getFirestore } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
@@ -9,8 +9,10 @@ import {app} from "../App";
 import {RoundedDropDown} from "../Components/RoundedDropDown";
 import {RoundedTextBox} from "../Components/RoundedTextBox";
 import RoundedButton from "../Components/RoundedButton";
+import stringSimilarity from "string-similarity";
+import Detailed from "./Detailed";
 
-function Market() {
+function Market(props) {
 	const db = getFirestore(app);
 	const storage = getStorage();
 	const [posts, setPosts] = useState(null);
@@ -20,6 +22,8 @@ function Market() {
 	const [maxDist, setMaxDist] = useState(9999999999);
 	const [search, setSearch] = useState(null);
 	const searchRef = useRef(null);
+	const [openModal, setOpenModal] = useState(false);
+	const [currPostID, setCurrPostID] = useState(null);
 
 	function getDistance(lat1,lon1,lat2,lon2) {
 		var R = 6371; // Radius of the earth in km
@@ -42,7 +46,7 @@ function Market() {
 
 	useEffect(() => {
 		async function getPosts(){
-			const snapShot = await getDocs(query(collection(db, "sell")));
+			const snapShot = await getDocs(query(collection(db, props.type)));
 
 			var localPosts = []
 
@@ -65,9 +69,12 @@ function Market() {
 
     return (
 		<div className="market-page">
+			<Modal open={openModal} onClose={() => setOpenModal(false)}>
+				<Detailed type={props.type} postID={currPostID}/>
+			</Modal>
 			<div className="search-bar-container">
 				<label htmlFor="header-search">
-					<p id="search-label">I'm looking for</p>
+					<p id="search-label">{props.label}</p>
 				</label>
 				<input
 					type="text"
@@ -121,7 +128,7 @@ function Market() {
 							if(post.photos.length > 0){
 								var url = await getDownloadURL(ref(storage, post.photos[0]));
 							}else{
-								var url = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png";
+								var url = "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png";
 							}
 
 							preview[post.id] = url;
@@ -133,8 +140,8 @@ function Market() {
 						}
 
 						if((category === null || post.category === category) &&
-							getDistance(location.latitude, location.longitude, post.location.latitude, post.location.longitude) < maxDist &&
-							(search == null || textCosineSimilarity(search, post.title) > 0.5)
+							(location === null || getDistance(location.latitude, location.longitude, post.location.latitude, post.location.longitude) < maxDist) &&
+							(search == null || stringSimilarity.compareTwoStrings(search, post.title) >= 0.5)
 						){
 							return(
 								<Listing
@@ -143,6 +150,10 @@ function Market() {
 									price={post.price}
 									location={location === null ? "null" : "Distance(km): " + getDistance(location.latitude, location.longitude, post.location.latitude, post.location.longitude)}
 									src={preview[post.id]}
+									onClick={() => {
+										setOpenModal(true);
+										setCurrPostID(post.id);
+									}}
 								/>
 							)
 						}else{
@@ -157,63 +168,6 @@ function Market() {
 			</div>
 		</div>
 	);
-}
-
-function termFreqMap(str) {
-	var words = str.split(' ');
-	var termFreq = {};
-	words.forEach(function(w) {
-		termFreq[w] = (termFreq[w] || 0) + 1;
-	});
-	return termFreq;
-}
-
-function addKeysToDict(map, dict) {
-	for (var key in map) {
-		dict[key] = true;
-	}
-}
-
-function termFreqMapToVector(map, dict) {
-	var termFreqVector = [];
-	for (var term in dict) {
-		termFreqVector.push(map[term] || 0);
-	}
-	return termFreqVector;
-}
-
-function vecDotProduct(vecA, vecB) {
-	var product = 0;
-	for (var i = 0; i < vecA.length; i++) {
-		product += vecA[i] * vecB[i];
-	}
-	return product;
-}
-
-function vecMagnitude(vec) {
-	var sum = 0;
-	for (var i = 0; i < vec.length; i++) {
-		sum += vec[i] * vec[i];
-	}
-	return Math.sqrt(sum);
-}
-
-function cosineSimilarity(vecA, vecB) {
-	return vecDotProduct(vecA, vecB) / (vecMagnitude(vecA) * vecMagnitude(vecB));
-}
-
-function textCosineSimilarity(strA, strB) {
-	var termFreqA = termFreqMap(strA);
-	var termFreqB = termFreqMap(strB);
-
-	var dict = {};
-	addKeysToDict(termFreqA, dict);
-	addKeysToDict(termFreqB, dict);
-
-	var termFreqVecA = termFreqMapToVector(termFreqA, dict);
-	var termFreqVecB = termFreqMapToVector(termFreqB, dict);
-
-	return cosineSimilarity(termFreqVecA, termFreqVecB);
 }
 
 export default Market;
