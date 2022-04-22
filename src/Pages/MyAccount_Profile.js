@@ -45,7 +45,6 @@ export default function PersonalProfile(){
                     Phone number:
                     <Box>
                         <RoundedTextBox defaultValue={user.phone === "" ? "" : user.phone}
-                            type="number"
                             ref={phoneNumberRef}
                             style={{width: '30vw'}}/>
                     </Box>
