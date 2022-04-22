@@ -1,0 +1,51 @@
+.listing-container {
+    margin-top: 20px;
+    margin-right: 100px;
+    display: flex;
+    justify-content: space-between;
+    width: 55vw;
+    height: 13vh;
+    /* float: right; */
+    background-color: #D3DFC8;
+    border-radius: 4px;
+}
+
+.listing-container:hover {
+    width: 57vw;
+    height: 14vh;
+    transition-duration: 50ms;
+    cursor: pointer;
+}
+
+.listing-image {
+    height: 100%;
+    aspect-ratio: 1;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.description-container {
+    width: 60%;
+    margin: 17px;
+}
+
+.description-title {
+    font-size: 17px;
+}
+
+.description-body {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.info-container {
+    width: 15%;
+    margin: 10px;
+    padding: 7px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: black;
+    background-color: rgb(154, 205, 189);
+}

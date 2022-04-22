@@ -1,16 +1,15 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import AddBoxIcon from '@mui/icons-material/AddBox';
-import {useContext} from "react";
-import {UserContext} from "../Contexts/UserContext";
-import {CurrentPageContext} from "../Contexts/CurrentPageContext";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import AddBoxIcon from "@mui/icons-material/AddBox";
+import { useContext } from "react";
+import { UserContext } from "../Contexts/UserContext";
+import { CurrentPageContext } from "../Contexts/CurrentPageContext";
+import {MenuItem, Menu} from "@mui/material";
 
 import a from "../Photos/a.png";
 import b from "../Photos/b.png";
@@ -39,10 +38,11 @@ import x from "../Photos/x.png";
 import y from "../Photos/y.png";
 import z from "../Photos/z.png";
 
+
 export default function GlobalMenubar(){
     const loginDropBox = ['Personal Profile', "My Listing"];
     const [user, setUser] = useContext(UserContext);
-    const [currentPage, setCurrentPage] = useContext(CurrentPageContext);
+	  const [currentPage, setCurrentPage] = useContext(CurrentPageContext);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
     const handleOpenUserMenu = (event) => {
@@ -53,34 +53,34 @@ export default function GlobalMenubar(){
         setAnchorElUser(null);
     };
 
-    const profilePic = {
-        a:a,
-        b:b,
-        c:c,
-        d:d,
-        e:e,
-        f:f,
-        g:g,
-        h:h,
-        i:i,
-        j:j,
-        k:k,
-        l:l,
-        m:m,
-        n:n,
-        o:o,
-        p:p,
-        q:q,
-        r:r,
-        s:s,
-        t:t,
-        u:u,
-        v:v,
-        w:w,
-        x:x,
-        y:y,
-        z:z
-    }
+	const profilePic = {
+		a: a,
+		b: b,
+		c: c,
+		d: d,
+		e: e,
+		f: f,
+		g: g,
+		h: h,
+		i: i,
+		j: j,
+		k: k,
+		l: l,
+		m: m,
+		n: n,
+		o: o,
+		p: p,
+		q: q,
+		r: r,
+		s: s,
+		t: t,
+		u: u,
+		v: v,
+		w: w,
+		x: x,
+		y: y,
+		z: z,
+	};
 
     return (
         <div>
@@ -97,7 +97,9 @@ export default function GlobalMenubar(){
                             color: "#000000",
                             fontFamily: "Comfortaa",
                             fontWeight: "bold",
-                            height: "50%"}}>
+                            height: "50%"}} onClick={() => {
+                                setCurrentPage("Market");
+                    }}>
                         Market
                     </Button>
                     <Button sx={{fontSize: "25px",
@@ -129,7 +131,9 @@ export default function GlobalMenubar(){
                             color: "#000000",
                             fontFamily: "Comfortaa",
                             fontWeight: "bold",
-                            height: "50%"}}>
+                            height: "50%"}} onClick={() => {
+                                setCurrentPage("NewPosting");
+                    }}>
                         Create listing
                         <AddBoxIcon sx={{fontSize: "27px",
                                     color: "#000000",
