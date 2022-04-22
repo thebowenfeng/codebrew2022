@@ -9,20 +9,22 @@ import RoundedButton from "./Components/RoundedButton";
 import RoundedLogoButton from "./Components/RoundedLogoButton";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import AccountListing from './Pages/MyAccount_MyListing';
 
 function App() {
   //States
   const [currentPage, setCurrentPage] = useState("About");
   const [user, setUser] = useState(null);
 
+
   return (
     <CurrentPageContext.Provider value={[currentPage, setCurrentPage]}>
       <UserContext.Provider value={[user, setUser]}>
         <div className="App">
           <GlobalMenubar />
-          {currentPage === "About" && <About />}
-          {currentPage === "Login" && <Login/>}
-          {currentPage === "Register" && <Register/>}
+          {currentPage == "My Listing" && <AccountListing />}
+          {currentPage == "Login" && <Login />}
+          {currentPage == "About" && <About />}
         </div>
       </UserContext.Provider>
     </CurrentPageContext.Provider>
