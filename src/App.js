@@ -1,6 +1,6 @@
 import "./App.css";
 import { initializeApp } from "firebase/app";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { CurrentPageContext } from "./Contexts/CurrentPageContext";
 import { UserContext } from "./Contexts/UserContext";
 import GlobalMenubar from "./Components/global_menubar";
@@ -18,6 +18,17 @@ function App() {
 	//States
 	const [currentPage, setCurrentPage] = useState("Market");
 	const [user, setUser] = useState(null);
+
+	useEffect(() => {
+		const unloadCallback = (event) => {
+			event.preventDefault();
+			event.returnValue = "";
+			return "";
+		};
+
+		window.addEventListener("beforeunload", unloadCallback);
+		return () => window.removeEventListener("beforeunload", unloadCallback);
+	}, []);
 
 	return (
 		<CurrentPageContext.Provider value={[currentPage, setCurrentPage]}>
