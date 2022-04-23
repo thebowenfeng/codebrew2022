@@ -82,7 +82,7 @@ export default function AccountListing(){
     return(
         <div>
             <Modal open={open}>
-                <h1>Loading...</h1>
+                <h1>Deleting...</h1>
             </Modal>
 
             <Box sx={{position: "relative", ml: '10%', mt: '5vh'}}>
