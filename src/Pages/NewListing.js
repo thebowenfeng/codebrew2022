@@ -50,41 +50,43 @@ export default function NewListing(){
     }
 
     const uploadClick =async () => {
-        if(titleRef.current.value === ""){
-            alert("Title cannot be empty")
-        }else if(typeRef.current.value === undefined){
-            alert("Must select category")
-        }else if(listType === null){
-            alert("Must specify whether or not buying/requesting or selling this item")
-        }else if(!negotiate && priceRef.current.value === ""){
-            alert("Must specify price if price is not negotiable")
-        }else if(descriptionRef.current.value === ""){
-            alert("Description cannot be empty")
-        }else if(listType === "sell" && arrayNullity(images)){
-            alert("Must upload at least 1 image if selling")
-        }else{
-            const postID = Math.random().toString(36).slice(2);
+        console.log(navigator.geolocation)
 
-            var imageURLs = [];
+        navigator.geolocation.getCurrentPosition(async (position) => {
+            if(titleRef.current.value === ""){
+                alert("Title cannot be empty")
+            }else if(typeRef.current.value === undefined){
+                alert("Must select category")
+            }else if(listType === null){
+                alert("Must specify whether or not buying/requesting or selling this item")
+            }else if(!negotiate && priceRef.current.value === ""){
+                alert("Must specify price if price is not negotiable")
+            }else if(descriptionRef.current.value === ""){
+                alert("Description cannot be empty")
+            }else if(listType === "sell" && arrayNullity(images)){
+                alert("Must upload at least 1 image if selling")
+            }else{
+                const postID = Math.random().toString(36).slice(2);
 
-            for(var i = 0; i < images.length; i++){
-                if(images[i] != null){
-                    try{
-                        const snapshot = await uploadBytes(ref(storage, `/posts/${postID}/${images[i].obj.name}`), images[i].obj);
-                        imageURLs.push(`gs://${snapshot.ref.bucket}/${snapshot.ref.fullPath}`);
-                    }catch(error){
-                        alert("ERROR: " + error.message);
+                var imageURLs = [];
+
+                for(var i = 0; i < images.length; i++){
+                    if(images[i] != null){
+                        try{
+                            const snapshot = await uploadBytes(ref(storage, `/posts/${postID}/${images[i].obj.name}`), images[i].obj);
+                            imageURLs.push(`gs://${snapshot.ref.bucket}/${snapshot.ref.fullPath}`);
+                        }catch(error){
+                            alert("ERROR: " + error.message);
+                        }
                     }
                 }
-            }
 
-            if(negotiate){
-                var priceVal = "Negotiable";
-            }else{
-                var priceVal = priceRef.current.value;
-            }
+                if(negotiate){
+                    var priceVal = "Negotiable";
+                }else{
+                    var priceVal = priceRef.current.value;
+                }
 
-            navigator.geolocation.getCurrentPosition(async (position) => {
                 try{
                     await setDoc(doc(db, listType, postID), {
                         user: user.uid,
@@ -101,8 +103,10 @@ export default function NewListing(){
                 }catch(error){
                     alert("ERROR: " + error.message);
                 }
-            })
-        }
+            }
+        }, (error) => {
+            alert("ERROR: " + error.message)
+        })
         setOpen(false);
     }
 

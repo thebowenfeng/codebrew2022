@@ -155,7 +155,7 @@ function Market(props) {
 									title={post.title}
 									description={post.description}
 									price={post.price}
-									location={location === null ? "null" : "Distance(km): " + getDistance(location.latitude, location.longitude, post.location.latitude, post.location.longitude)}
+									location={location === null ? "Enable location service" : "Distance(km): " + getDistance(location.latitude, location.longitude, post.location.latitude, post.location.longitude)}
 									src={preview[post.id]}
 									onClick={() => {
 										setOpenModal(true);
