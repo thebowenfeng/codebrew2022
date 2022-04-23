@@ -75,15 +75,15 @@ export default function Detailed(props){
                     <Carousel>
                         {postData.photos.map((image) => {
                             return(
-                                <img src={image} style={{maxHeight: "25vh", maxWidth: "20vw"}}/>
+                                <img src={image} style={{maxHeight: "20vh", maxWidth: "20vw"}}/>
                             )
                         })}
                     </Carousel>
                     <h1>Seller information</h1>
-                    <h1 style={{fontSize: "2.5vh"}}>Phone Number</h1>
-                    <h1 style={{fontSize: "2.5vh"}}>{postData.phone === "" ? "N/A" : postData.phone}</h1>
-                    <h1 style={{fontSize: "2.5vh"}}>Email</h1>
-                    <h1 style={{fontSize: "2.5vh"}}>{postData.email === "" ? "N/A" : postData.email}</h1>
+                    <h1 style={{fontSize: "2vh"}}>Phone Number</h1>
+                    <h1 style={{fontSize: "2vh", width: "20vw", textAlign: "center", overflow: "auto", overflowWrap: "break-word", whiteSpace: "nowrap"}}>{postData.phone === "" ? "N/A" : postData.phone}</h1>
+                    <h1 style={{fontSize: "2vh"}}>Email</h1>
+                    <h1 style={{fontSize: "2vh", width: "20vw", textAlign: "center", overflow: "auto"}}>{postData.email === "" ? "N/A" : postData.email}</h1>
                     <h1>Location</h1>
                     <iframe width="100%" height="100%" id="gmap_canvas"
                         src={`https://maps.google.com/maps?q=${postData.location.latitude}%20${postData.location.longitude}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
