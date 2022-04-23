@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+[Devpost Link](https://devpost.com/software/remake)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Inspiration
+Goods and materials that are often thrown out still hold value and can be put to good use. Our website aims to encourage users to reuse and offer goods that would otherwise be dumped in landfills where they deteriorate and pollute.
 
-## Available Scripts
+## What it does
+ReMake! Bring new life to old goods
+ReMake is a waste and sustainability initiative website that lets users buy and sell old goods that would have otherwise gone to waste and landfill. Whether it's for art, design sustainability, or another project. ReMake will have what you need.
 
-In the project directory, you can run:
+## How we built it
+ReMake is developed, supported, and powered by the following technologies. The core website was developed with React, with the visual aspects created with Material UI and server hosting and backend supported by Firebase and Google Storage Bucket.
 
-### `npm start`
+## Challenges we ran into
+Storing and retrieving images was a fair challenge that we had to overcome. The main problem was the fact that retrieving images often takes much longer than retrieving the content of a listing, especially without a cache service or a CDN. To make the experience as smooth as possible, we utilized states to minimize any impact of the delay.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Designing and implementing an intuitive user experience was another massive challenge. We had to look at other e-commerce websites and also think about the changes we need to make and the unique features we need to implement, in order to better fit our purpose. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Accomplishments that we're proud of
+We designed, developed and tested a robust product within a relatively short span of time. 
 
-### `npm test`
+## What we learned
+Market research and designing a user-centered experience. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Image storage and retrieval.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## What's next for ReMake
+There are multiple opportunities and areas for ReMake to expand such as discussion forums and DIY guides. The discussion forum is aimed to encourage our users to share and discuss their ideas, or just to browse for inspiration. Additionally, the DIY guide aims to support the Remake ideals with a platform to share user-created DIY projects and guides.
