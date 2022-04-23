@@ -87,8 +87,7 @@ export default function GlobalMenubar(){
             <Box fullWidth sx={{display: "flex", justifyContent: "space-between"}}>
                 <Box sx={{width: "fit-content", display: "flex"}}>
                     <Box>
-                        <Avatar src="https://pbs.twimg.com/profile_images/1455185376876826625/s1AjSxph_400x400.jpg"
-                        sx={{height: "12vh", width: "12vh"}}/>
+                        <img src="https://cdn.discordapp.com/attachments/950243669330497646/967230410125869107/unknown.png" style={{height: '6vw'}}/>
                     </Box>
                     <Button sx={{fontSize: "25px",
                             position: 'relative',
