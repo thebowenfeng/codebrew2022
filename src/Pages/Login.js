@@ -48,18 +48,30 @@ export default function Login(){
         const provider = new FacebookAuthProvider();
 
         signInWithPopup(auth, provider).then(async (result) => {
-            setUser({
-                username: result.user.displayName,
-                email: result.user.email,
-                phone: result.user.phoneNumber == null ? "" : result.user.phoneNumber,
-                uid: result.user.uid
-            })
+            const docSnap = await getDoc(doc(db, "users", result.user.uid));
 
-            await setDoc(doc(db, "users", result.user.uid), {
-                username: result.user.displayName,
-                email: result.user.email,
-                phone: result.user.phoneNumber == null ? "" : result.user.phoneNumber,
-            })
+            if(docSnap.exists()){
+                setUser({
+                    username: docSnap.data().username,
+                    email: result.user.email,
+                    phone: docSnap.data().phone,
+                    uid: result.user.uid
+                })
+            }else{
+                setUser({
+                    username: result.user.displayName,
+                    email: result.user.email,
+                    phone: result.user.phoneNumber == null ? "" : result.user.phoneNumber,
+                    uid: result.user.uid
+                })
+
+                await setDoc(doc(db, "users", result.user.uid), {
+                    username: result.user.displayName,
+                    email: result.user.email,
+                    phone: result.user.phoneNumber == null ? "" : result.user.phoneNumber,
+                })
+            }
+
             setCurrentPage("Market");
         }).catch((error) => {
             alert("ERROR: " + error.message);
@@ -70,18 +82,30 @@ export default function Login(){
         const provider = new GoogleAuthProvider();
 
         signInWithPopup(auth, provider).then(async (result) => {
-            setUser({
-                username: result.user.displayName,
-                email: result.user.email,
-                phone: result.user.phoneNumber == null ? "" : result.user.phoneNumber,
-                uid: result.user.uid
-            })
+            const docSnap = await getDoc(doc(db, "users", result.user.uid));
 
-            await setDoc(doc(db, "users", result.user.uid), {
-                username: result.user.displayName,
-                email: result.user.email,
-                phone: result.user.phoneNumber == null ? "" : result.user.phoneNumber,
-            })
+            if(docSnap.exists()){
+                setUser({
+                    username: docSnap.data().username,
+                    email: result.user.email,
+                    phone: docSnap.data().phone,
+                    uid: result.user.uid
+                })
+            }else{
+                setUser({
+                    username: result.user.displayName,
+                    email: result.user.email,
+                    phone: result.user.phoneNumber == null ? "" : result.user.phoneNumber,
+                    uid: result.user.uid
+                })
+
+                await setDoc(doc(db, "users", result.user.uid), {
+                    username: result.user.displayName,
+                    email: result.user.email,
+                    phone: result.user.phoneNumber == null ? "" : result.user.phoneNumber,
+                })
+            }
+
             setCurrentPage("Market");
         }).catch((error) => {
             alert("ERROR: " + error.message);
