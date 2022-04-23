@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/codebrew2022/static/css/main.1b501d88.css",
+    "main.js": "/codebrew2022/static/js/main.c6985b0f.js",
+    "static/js/787.aa252f18.chunk.js": "/codebrew2022/static/js/787.aa252f18.chunk.js",
+    "static/media/m.png": "/codebrew2022/static/media/m.d9803e3156c4e821cc00.png",
+    "static/media/q.png": "/codebrew2022/static/media/q.eebe22a64ef7fa2a80d3.png",
+    "static/media/o.png": "/codebrew2022/static/media/o.14118b355b4f527a59a2.png",
+    "static/media/w.png": "/codebrew2022/static/media/w.e99c230a778f4c659538.png",
+    "static/media/x.png": "/codebrew2022/static/media/x.111a31e2ef022980f621.png",
+    "static/media/g.png": "/codebrew2022/static/media/g.e1a59b985b40cbf5c9e5.png",
+    "static/media/s.png": "/codebrew2022/static/media/s.a652ba8bb131c2fcdc1c.png",
+    "static/media/c.png": "/codebrew2022/static/media/c.5492d5c9a8e1e25af3b0.png",
+    "static/media/a.png": "/codebrew2022/static/media/a.eb6b784233c6ebf38093.png",
+    "static/media/v.png": "/codebrew2022/static/media/v.b967cb93acb86436b6ab.png",
+    "static/media/k.png": "/codebrew2022/static/media/k.14f38e8e38aaf2e9bc4c.png",
+    "static/media/d.png": "/codebrew2022/static/media/d.0563ee99c822dd895fdc.png",
+    "static/media/y.png": "/codebrew2022/static/media/y.b9b0c5ef11e5a0066aea.png",
+    "static/media/z.png": "/codebrew2022/static/media/z.a6cada2d4f5ee1dfeb1a.png",
+    "static/media/b.png": "/codebrew2022/static/media/b.9e06f930f5308fea8e34.png",
+    "static/media/r.png": "/codebrew2022/static/media/r.09d73e1de3d18f818718.png",
+    "static/media/n.png": "/codebrew2022/static/media/n.84cfaac2b234dcf6e412.png",
+    "static/media/u.png": "/codebrew2022/static/media/u.48a00deb012d036f7400.png",
+    "static/media/p.png": "/codebrew2022/static/media/p.6e76268acbce4206e578.png",
+    "static/media/j.png": "/codebrew2022/static/media/j.71779ee24eaaedee4230.png",
+    "static/media/e.png": "/codebrew2022/static/media/e.aeef1edcc9fd43db470c.png",
+    "static/media/i.png": "/codebrew2022/static/media/i.c2f37945fc749633c4d4.png",
+    "index.html": "/codebrew2022/index.html",
+    "main.1b501d88.css.map": "/codebrew2022/static/css/main.1b501d88.css.map",
+    "main.c6985b0f.js.map": "/codebrew2022/static/js/main.c6985b0f.js.map",
+    "787.aa252f18.chunk.js.map": "/codebrew2022/static/js/787.aa252f18.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1b501d88.css",
+    "static/js/main.c6985b0f.js"
+  ]
+}
