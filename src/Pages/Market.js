@@ -72,7 +72,7 @@ function Market(props) {
     return (
 		<div className="market-page">
 			<Modal open={openModal} onClose={() => setOpenModal(false)}>
-				<Detailed type={props.type} postID={currPostID}/>
+				<Detailed type={props.type} postID={currPostID} onClose={() => setOpenModal(false)}/>
 			</Modal>
 			<div className="search-bar-container">
 				<label htmlFor="header-search">

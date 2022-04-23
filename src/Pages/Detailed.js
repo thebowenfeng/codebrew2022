@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import { doc, getDoc, getFirestore} from "firebase/firestore";
 import {getDownloadURL, getStorage, ref} from "firebase/storage";
 import Box from "@mui/material/Box";
+import RoundedButton from "../Components/RoundedButton";
 
 
 export default function Detailed(props){
@@ -58,6 +59,11 @@ export default function Detailed(props){
                 marginLeft: "10vw",
                 width: "80vw"
             }}>
+                <RoundedButton style={{
+                    position:"absolute",
+                    left: "86vw",
+                    zIndex: 10
+                }} onClick={props.onClose}>X</RoundedButton>
                 <div style={{
                     display: "flex",
                     flexDirection: "column",
