@@ -75,7 +75,7 @@ export default function Detailed(props){
                     <Carousel>
                         {postData.photos.map((image) => {
                             return(
-                                <img src={image} style={{maxHeight: "25vh"}}/>
+                                <img src={image} style={{maxHeight: "25vh", maxWidth: "20vw"}}/>
                             )
                         })}
                     </Carousel>
