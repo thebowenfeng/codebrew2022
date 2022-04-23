@@ -12,8 +12,7 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { UserContext } from '../Contexts/UserContext';
 import { collection, query, where, getDocs, getFirestore, setDoc, doc, deleteDoc } from "firebase/firestore";
 import { CurrentPageContext } from '../Contexts/CurrentPageContext';
-import {getStorage, ref, getDownloadURL} from 'firebase/storage';
-import {getDatabase, child, push, update, ref as refData} from "firebase/database";
+import {getStorage, ref, getDownloadURL, deleteObject, listAll} from 'firebase/storage';
 
 
 export default function AccountListing(){
@@ -163,8 +162,14 @@ export default function AccountListing(){
                                     <Box sx={{position: 'relative', ml: '2vw'}}>
                                         <Button
                                             onClick={async (event) =>{
-                                                alert("Item deleted");
                                                 await deleteDoc(doc(db, "sell", sellItems.id));
+
+                                                const res = await listAll(ref(storage, "posts/" + sellItems.id));
+                                                for(var i = 0; i < res.items.length; i++){
+                                                    await deleteObject(res.items[i]);
+                                                }
+
+                                                alert("Item deleted");
                                                 setRefresh(!refresh);
                                             }}>
                                             <RemoveCircleIcon />
@@ -238,8 +243,14 @@ export default function AccountListing(){
                                             </Box>
                                             <Box sx={{position: 'relative', ml: '2vw'}}>
                                                 <Button onClick={async (event) =>{
-                                                alert("Item deleted");
                                                 await deleteDoc(doc(db, "buy", requestItems.id));
+
+                                                const res = await listAll(ref(storage, "posts/" + requestItems.id));
+                                                for(var i = 0; i < res.items.length; i++){
+                                                    await deleteObject(res.items[i]);
+                                                }
+
+                                                alert("Item deleted");
                                                 setRefresh(!refresh);
                                             }}><RemoveCircleIcon /></Button>
                                             </Box>
