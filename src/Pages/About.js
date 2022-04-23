@@ -16,7 +16,7 @@ export default function About(){
                     justifyContent: "center",
                     marginTop: "15vh"
                 }}>
-                    <h1 style={{fontSize: "10vh"}}>Ready to Recycle?</h1>
+                    <h1 style={{fontSize: "10vh"}}>Bring new life to old goods!</h1>
                 </div>
             </Slide>
             <div style={{
@@ -29,19 +29,17 @@ export default function About(){
                 <Slide direction={"right"} in={true} timeout={800}>
                     <div className={"About-description"}>
                         <h1 style={{fontSize: "5vh"}}>Why we do</h1>
-                        <p style={{marginTop: "5vh", width: "25vw", fontSize: "3vh"}}>website description:  why we do, what we do,
-                            Focus on the creator
-                            Design ideas on the waste can do
-                            Request materials based on the project</p>
+                        <p style={{marginTop: "5vh", width: "25vw", fontSize: "3vh"}}>Inorder to reduce how much goods and materials go to waste and landfill, 
+                        we wanted to develop a solution and website with the purpose of reusing, remaking and renewing materials. Our aim was to reduce wasted 
+                        goods and ReMake is our solution to this problem.</p>
                     </div>
                 </Slide>
                 <Slide direction={"left"} in={true} timeout={800}>
                     <div className={"About-description"}>
                         <h1 style={{fontSize: "5vh"}}>What we do</h1>
-                        <p style={{marginTop: "5vh", width: "25vw", fontSize: "3vh"}}>website description:  why we do, what we do,
-                            Focus on the creator
-                            Design ideas on the waste can do
-                            Request materials based on the project</p>
+                        <p style={{marginTop: "5vh", width: "25vw", fontSize: "3vh"}}>ReMake is a waste and 
+                        sustainability initiative website that lets users buy and sell old goods that would have otherwise gone to waste and landfill. 
+                        Whether its for art, design sustainability or another other project. ReMake will have what you need!</p>
                     </div>
                 </Slide>
             </div>
