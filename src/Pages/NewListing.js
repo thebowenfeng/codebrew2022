@@ -49,9 +49,7 @@ export default function NewListing(){
         return true;
     }
 
-    const uploadClick =async () => {
-        console.log(navigator.geolocation)
-
+    const uploadClick = async () => {
         navigator.geolocation.getCurrentPosition(async (position) => {
             if(titleRef.current.value === ""){
                 alert("Title cannot be empty")
@@ -103,11 +101,12 @@ export default function NewListing(){
                 }catch(error){
                     alert("ERROR: " + error.message);
                 }
+                setOpen(false);
             }
         }, (error) => {
             alert("ERROR: " + error.message)
+            setOpen(false);
         })
-        setOpen(false);
     }
 
     function imageUploadButton(id){

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {app} from '../App';
 import Box from '@mui/material/Box';
-import { Avatar, Button, ToggleButtonGroup, Typography } from '@mui/material';
+import {Avatar, Button, Modal, ToggleButtonGroup, Typography} from '@mui/material';
 import { ToggleButton } from '@mui/material';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -23,6 +23,7 @@ export default function AccountListing(){
     const [selList, setSelList] = React.useState(null);
     const [reqList, setcuReqList] = React.useState(null);
     const [preview, setPreview] = React.useState({});
+    const [open, setOpen] = React.useState(false);
 
     const storage = getStorage();
 
@@ -65,8 +66,25 @@ export default function AccountListing(){
         }
     };
 
+    const deletePost = async (type, id, event) =>{
+        await deleteDoc(doc(db, type, id));
+
+        const res = await listAll(ref(storage, "posts/" + id));
+        for(var i = 0; i < res.items.length; i++){
+            await deleteObject(res.items[i]);
+        }
+
+        alert("Item deleted");
+        setOpen(false);
+        setRefresh(!refresh);
+    }
+
     return(
         <div>
+            <Modal open={open}>
+                <h1>Loading...</h1>
+            </Modal>
+
             <Box sx={{position: "relative", ml: '10%', mt: '5vh'}}>
                 <ToggleButtonGroup
                     value = {cuList}
@@ -161,16 +179,9 @@ export default function AccountListing(){
                                     </Box>
                                     <Box sx={{position: 'relative', ml: '2vw'}}>
                                         <Button
-                                            onClick={async (event) =>{
-                                                await deleteDoc(doc(db, "sell", sellItems.id));
-
-                                                const res = await listAll(ref(storage, "posts/" + sellItems.id));
-                                                for(var i = 0; i < res.items.length; i++){
-                                                    await deleteObject(res.items[i]);
-                                                }
-
-                                                alert("Item deleted");
-                                                setRefresh(!refresh);
+                                            onClick={(event) => {
+                                                setOpen(true);
+                                                deletePost("sell", sellItems.id, event);
                                             }}>
                                             <RemoveCircleIcon />
                                         </Button>
@@ -242,17 +253,10 @@ export default function AccountListing(){
                                                 </FormControl>
                                             </Box>
                                             <Box sx={{position: 'relative', ml: '2vw'}}>
-                                                <Button onClick={async (event) =>{
-                                                await deleteDoc(doc(db, "buy", requestItems.id));
-
-                                                const res = await listAll(ref(storage, "posts/" + requestItems.id));
-                                                for(var i = 0; i < res.items.length; i++){
-                                                    await deleteObject(res.items[i]);
-                                                }
-
-                                                alert("Item deleted");
-                                                setRefresh(!refresh);
-                                            }}><RemoveCircleIcon /></Button>
+                                                <Button onClick={(event) => {
+                                                    setOpen(true)
+                                                    deletePost("buy", requestItems.id, event);
+                                                }}><RemoveCircleIcon /></Button>
                                             </Box>
                                         </Box>
                                     </Box>
